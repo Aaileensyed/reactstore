@@ -1,11 +1,11 @@
-#A user get their own bookorder lists
+#A user get their own dishorder lists
 query{
   listOrders{
     items{
       total
-      books{
+      dishes{
         items{
-          book{
+          dish{
             title
             image
             price
@@ -26,9 +26,9 @@ query{
   }){
     items{
       total
-      books{
+      dishes{
         items{
-          book{
+          dish{
             title
             image
             price
@@ -40,15 +40,15 @@ query{
   }
 }
 
-# Link book and the order
+# Link dish and the order
 mutation{
-  createBookOrder(input: {
+  createDishOrder(input: {
     id: "bo123"
-    book_id: "673309be-1769-493f-9d15-4f75e010bde1"
+    dish_id: "673309be-1769-493f-9d15-4f75e010bde1"
     order_id: "1001"
   }){
   	order_id
-    book_id
+    dish_id
   }
 }
 

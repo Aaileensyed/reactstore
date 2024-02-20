@@ -8,10 +8,10 @@ export const getOrder = /* GraphQL */ `
       user
       date
       total
-      books {
+      dishes {
         items {
           id
-          book_id
+          dish_id
           order_id
           createdAt
           updatedAt
@@ -35,7 +35,7 @@ export const listOrders = /* GraphQL */ `
         user
         date
         total
-        books {
+        dishes {
           nextToken
         }
         createdAt
@@ -45,13 +45,13 @@ export const listOrders = /* GraphQL */ `
     }
   }
 `;
-export const listBooks = /* GraphQL */ `
-  query ListBooks(
-    $filter: ModelBookFilterInput
+export const listDishes = /* GraphQL */ `
+  query ListDishes(
+    $filter: ModelDishFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBooks(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listDishes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         title
@@ -67,9 +67,9 @@ export const listBooks = /* GraphQL */ `
     }
   }
 `;
-export const getBook = /* GraphQL */ `
-  query GetBook($id: ID!) {
-    getBook(id: $id) {
+export const getDish = /* GraphQL */ `
+  query GetDish($id: ID!) {
+    getDish(id: $id) {
       id
       title
       description
@@ -80,7 +80,7 @@ export const getBook = /* GraphQL */ `
       orders {
         items {
           id
-          book_id
+          dish_id
           order_id
           createdAt
           updatedAt

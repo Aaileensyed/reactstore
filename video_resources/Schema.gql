@@ -1,12 +1,12 @@
-type Book
+type Dish
   @model(subscriptions: null)
   @auth(
     rules: [
-      # allow admins to create, update and delete books
+      # allow admins to create, update and delete dishes
       { allow: groups, groups: ["Admin"] }
-      # allow all authenticated users to view books
+      # allow all authenticated users to view dishes
       { allow: private, operations: [read] }
-      # allow all guest users (not authenticated) to view books
+      # allow all guest users (not authenticated) to view dishes
       { allow: public, operations: [read] }
     ]
   ) {
@@ -17,24 +17,24 @@ type Book
   author: String
   featured: Boolean
   price: Float
-  orders: [BookOrder] @connection(keyName: "byBook", fields: ["id"])
+  orders: [DishOrder] @connection(keyName: "byDish", fields: ["id"])
 }
 
-type BookOrder
+type DishOrder
   @model(queries: null, subscriptions: null)
-  @key(name: "byBook", fields: ["book_id", "order_id"])
-  @key(name: "byOrder", fields: ["order_id", "book_id"])
+  @key(name: "byDish", fields: ["dish_id", "order_id"])
+  @key(name: "byOrder", fields: ["order_id", "dish_id"])
   @auth(
     rules: [
-      # allow admins to create bookorders for customers by using customer email in lambda
+      # allow admins to create dishorders for customers by using customer email in lambda
       { allow: owner, identityClaim: "email", ownerField: "customer" }
       { allow: groups, groups: ["Admin"] }
     ]
   ) {
   id: ID!
-  book_id: ID!
+  dish_id: ID!
   order_id: ID!
-  book: Book @connection(fields: ["book_id"])
+  dish: Dish @connection(fields: ["dish_id"])
   order: Order @connection(fields: ["order_id"])
 }
 
@@ -53,7 +53,7 @@ type Order
   user: String!
   date: String
   total: Float
-  books: [BookOrder] @connection(keyName: "byOrder", fields: ["id"])
+  dishes: [DishOrder] @connection(keyName: "byOrder", fields: ["id"])
 }
 
 enum OrderStatus {

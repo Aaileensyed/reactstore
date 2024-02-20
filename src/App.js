@@ -6,10 +6,10 @@ import Amplify from "aws-amplify";
 // Pages
 import Home from "./pages/Home"
 import Error from "./pages/Error";
-import Books from "./pages/Books";
+import Dishes from "./pages/Dishes";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import BookDetails from "./pages/BookDetails";
+import DishDetails from "./pages/DishDetails";
 import Admin from './pages/Admin';
 
 // Components
@@ -34,12 +34,12 @@ const App = () => {
         <Route path="/checkout">
           <Checkout />
         </Route>
-        <Route exact path="/books">
-          <Books />
+        <Route exact path="/dishes">
+          <Dishes />
         </Route>
         <Route
-          path="/books/:id"
-          children={<BookDetails></BookDetails>}>
+          path="/dishes/:id"
+          children={<DishDetails></DishDetails>}>
         </Route>
         <Route path="/admin">
           <Admin />

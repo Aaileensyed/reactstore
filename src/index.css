@@ -115,7 +115,7 @@ nav ul {
   margin: auto;
 }
 
-/* Featured Books and Books Section */
+/* Featured Dishes and Dishes Section */
 
 .featured-head {
   background: #343c44;
@@ -126,7 +126,7 @@ nav ul {
   align-items: center;
 }
 
-.books {
+.dishes {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -135,7 +135,7 @@ nav ul {
   margin: auto;
 }
 
-.book {
+.dish {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -152,16 +152,16 @@ nav ul {
   justify-content: space-evenly;
 }
 
-.featured-book {
+.featured-dish {
   margin: 1rem 0;
 }
 
-.book-image {
+.dish-image {
   flex: 3 1 100rem;
   padding: 2rem 0rem;
 }
 
-.book-link {
+.dish-link {
   flex: 1 1 100rem;
   background: #55606c;
   font-size: 1.7rem;
@@ -169,18 +169,18 @@ nav ul {
   height: 100%;
 }
 
-.book-link:hover {
+.dish-link:hover {
   background: #343c43;
 }
 
-.book img {
+.dish img {
   min-height: 10vh;
   height: 21vh;
 }
 
-/* Book Details Section */
+/* Dish Details Section */
 
-.book-details {
+.dish-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -350,7 +350,7 @@ nav ul {
     padding: 1rem;
   }
 
-  .book-details {
+  .dish-details {
     margin-top: 4rem;
   }
 }
